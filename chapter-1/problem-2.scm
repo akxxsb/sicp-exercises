@@ -3,6 +3,8 @@
 (load "include/accumulate-utils.scm")
 (load "include/math.scm")
 
+;包含习题1.29至
+
 (println "====================== 1.29 =====================")
 
 (define (integral f a b dx)

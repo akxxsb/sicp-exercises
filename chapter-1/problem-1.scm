@@ -1,8 +1,8 @@
-
 (load "include/common.scm")
 (load "include/format.scm")
 (load "include/math.scm")
 
+; 包含习题1.3至1.22
 (println "====================== 1.3 =====================")
 ;定义sum-of-two-largest函数，计算三个数中较大的两个数的和
 (define (sum-of-two-largest a b c)
