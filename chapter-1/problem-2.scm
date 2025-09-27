@@ -3,7 +3,7 @@
 (load "include/accumulate-utils.scm")
 (load "include/math.scm")
 
-;包含习题1.29至
+;包含习题1.29至1.41
 
 (println "====================== 1.29 =====================")
 
@@ -138,10 +138,27 @@
 (println "====================== 1.39 =====================")
 (define (tan-cf x k)
   (cont-frac-iter (lambda (i) ;n(i)定义
-    (choose-if (= i 1) x (- (square x))))
+    (if (= i 1) x (- (square x))))
     (lambda (i) (- (* 2 i) 1)) ;d(i)定义
     1000))
 (printbln "tan(pi/4): " (tan-cf (/ (get-pi 1000) 4) 1000))
+
+(println "====================== 1.40 =====================")
+
+; 函数x^3 + ax^2 + bx + c
+(define (cubeic a b c)
+  (lambda (x) (+ 
+    (cube x)
+    (* a (square x))
+    (* b x)
+    c)))
+
+(define g1 (cubeic 3 2 1))
+(define g2 (cubeic 4 (- 3) 2))
+(define g1x (newtons-method g1 1))
+(define g2x (newtons-method g2 1))
+(println "g1: x^3 + 3x^2 + 2x + 1 = 0 root: " g1x ", g1(x) = " (g1 g1x))
+(println "g2: x^3 + 4x^2 -3x + 2 = 0 root: " g2x ", g2(x) = " (g2 g2x))
 
 (println "====================== 1.41 =====================")
 

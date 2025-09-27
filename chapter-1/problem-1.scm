@@ -165,18 +165,13 @@
 (output-trangle 5)
 
 (println "====================== 1.16 =====================")
-
-(define (fast-expt b n)
-  (cond ((= n 0) 1)
-    ((even? n) (square (fast-expt b (/ n 2))) )
-    (else (* b (fast-expt b (- n 1)))))
-)
 (println (fast-expt 3 5))
 
 (define (fast-expt-iter b n a)
   (cond ((= n 0) a)
     ((even? n) (fast-expt-iter (square b) (/ n 2) a))
     (else (fast-expt-iter b (- n 1) (* a b)))))
+
 (println (fast-expt-iter 3 5 1))
 (println (fast-expt-iter 3 6 1))
 
