@@ -4,16 +4,9 @@
 
 ;包含习题1.42至1.46
 (println "====================== 1.42 =====================")
-(define (compose f g)
-  (lambda (x) (f (g x))))
-
 (printbln "((compose square inc) 6) = " ((compose square inc) 6))
 
 (println "====================== 1.43 =====================")
-(define (repeated f n)
-  (cond ((< n 1) nop)
-    ((= n 1) f)
-    (else (compose f (repeated f (- n 1))))))
 
 (println "((repeated inc 10) 0) = " ((repeated inc 10) 0))
 (println "((repeated square 3) 2) = " ((repeated square 3) 2))
